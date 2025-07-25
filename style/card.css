@@ -11,12 +11,11 @@ body {
   margin-inline: auto;
   margin-block-start: 150px;
   aspect-ratio: 63/88;
-  transform-origin: bottom right; /* Pivot around bottom-right corner */
+  transform-origin: bottom right;
   transform: rotate(35deg) rotate3d(1, 1.5, 0, 0deg);
     position: fixed; 
     animation-name: rotate;
     animation-timeline: scroll();
-  /* animation: rotate 30s infinite linear; */
 }
 
 .card img {
@@ -24,7 +23,7 @@ body {
 }
 
 .card::after {
-  background-image: url("./back.png");
+  background-image: url("./assets/back.png");
   background-position: 0 0;
   background-size: contain;
   background-repeat: no-repeat;
