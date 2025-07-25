@@ -1,0 +1,134 @@
+:root {
+  /*  colors  */
+  --nav: lightskyblue;
+  --text: black;
+  --gradient: hsl(203, 92%, 85%), hsl(203, 92%, 95%);
+  --gradient-reverse: hsl(203, 92%, 95%), hsl(203, 92%, 85%);
+  --main: hsl(203, 92%, 95%);
+  --accent: hsl(203, 92%, 35%);
+}
+
+:root:has(input[type="checkbox"]:checked) {
+  /*  dark theme  */
+  --nav: hsl(203, 92%, 15%);
+  --text: white;
+  --gradient: hsl(203, 92%, 25%), hsl(203, 92%, 35%);
+  --gradient-reverse: hsl(203, 92%, 35%), hsl(203, 92%, 25%);
+  --main: hsl(203, 92%, 35%);
+  --accent: hsl(203, 92%, 75%);
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--text);
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+  container-type: normal;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding-block: 30px;
+  background-color: var(--nav);
+}
+header h1,
+header p {
+  backdrop-filter: blur(20px);
+  background-color: rgb(255, 255, 255, 0.3);
+  padding: 20px;
+}
+header,
+main,
+footer {
+  padding-inline: 10% 20px;
+}
+header {
+  padding-block: 30px 100px;
+  background-image: url("https://picsum.photos/1300/800");
+}
+main {
+  display: flex;
+  background: linear-gradient(var(--gradient));
+
+  & article {
+    width: 70%;
+    border-inline-end: 1px solid darkblue;
+    min-height: 100vh;
+    padding-inline-end: 10%;
+  }
+  & aside {
+    width: 25%;
+    padding-inline: 20px;
+    & ul {
+      padding-inline-start: 0;
+    }
+    & li {
+      display: flex;
+      margin-block-end: 20px;
+    }
+    & img {
+      float: right;
+      width: 70px;
+      margin-inline-start: 10px;
+    }
+    & a {
+      display: block;
+      font-weight: bold;
+      margin-block-end: 10px;
+    }
+  }
+}
+
+footer {
+  padding-block: 30px;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(var(--gradient-reverse));
+}
+
+input {
+  accent-color: var(--accent);
+}
+label {
+  font-weight: bold;
+}
+
+
+article p:nth-of-type(even) {
+  animation-name: from-left;
+}
+article p:nth-of-type(odd) {
+  animation-name: from-right;
+}
+article p {
+  animation-timeline: view();
+  animation-range: 0% 30%
+}
+
+
+
+@keyframes from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+
+@keyframes from-right {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
